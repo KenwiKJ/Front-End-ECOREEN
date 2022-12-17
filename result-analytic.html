@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/result-analytic.css">
+  <script src="https://kit.fontawesome.com/e73742050b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <img src="" alt="">
+      <span class="logo_name">ECOREEN</span>
+    </div>
+
+    <ul class="nav-list">
+      <li>
+        <a href="home.html">
+          <i class="fa-solid fa-house"></i>
+          <span class="list_name">Dashboard</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="company.html">
+          <i class="fa-solid fa-industry"></i>
+          <span class="list_name">Company</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="analytics.html" class="active">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span class="list_name">Analytics</span>
+        </a>
+      </li>
+
+
+      <li>
+        <a href="transportasi.html">
+          <i class="fa-solid fa-truck"></i>
+          <span class="list_name">Transportation</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class="fa-solid fa-bars side"></i>
+        <span class="dashboard">Analytics</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="profile-details">
+        <img src="./img/planet-earth.png" alt="">
+        <span class="admin_name">Kenwi Konghardijunanto</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="result">
+        <h2>The calculation results</h2>
+
+        <div class="data-emision-company">
+          <div class="text-data">Comparison of calculation results with other fuels:</div>
+          <div class="chartCard">
+            <div class="chartBox">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          <script>
+            getData();
+            async function getData() {
+              const response = await fetch('https://ecoren-api.vercel.app/comparison');
+              let data = await response.json();
+              lastIdx = data.length - 1;
+              data = data[lastIdx];
+              const labels = ["gas diesel-oil", "Sub-Bituminous Coal", "Other Bituminous Coal", "biodiesel"];
+              co2 = [];
+              ch4 = [];
+              n20 = [];
+              coeq = [];
+              for (let i = 0; i < labels.length; i++) {
+                co2.push(data[labels[i]].CO2);
+                ch4.push(data[labels[i]].CH4);
+                n20.push(data[labels[i]].N20);
+                coeq.push(data[labels[i]].totalco2eq);
+              }
+              new Chart(document.getElementById("myChart"), {
+                type: 'bar',
+                data: {
+                  labels: ["gas diesel-oil", "Sub-Bituminous Coal", "Other Bituminous Coal", "Biodiesel"],
+                  datasets: [{
+                    label: 'CO2',
+                    data: co2,
+                    backgroundColor: [
+                      'rgba(255, 26, 104, 0.2)',
+                    ],
+                    borderColor: [
+                      'rgba(255, 26, 104, 1)',
+                    ],
+                    borderWidth: 1
+                  },
+                  {
+                    label: 'CH4',
+                    data: ch4,
+                    backgroundColor: [
+                      'rgba(54, 162, 235, 0.2)',
+                    ],
+                    borderColor: [
+                      'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                  },
+                  {
+                    label: 'N20',
+                    data: n20,
+                    backgroundColor: [
+                      'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                      'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                  },
+                  {
+                    label: 'CO2EQ',
+                    data: coeq,
+                    backgroundColor: [
+                      'rgba(75, 192, 192, 0.2)',
+                    ],
+                    borderColor: [
+                      'rgba(75, 192, 192, 1)',
+                    ],
+                    borderWidth: 1
+                  }
+                  ]
+                },
+                options: {
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: 'Type Of Fuel'
+                  }
+                }
+              });
+            }
+          </script>
+        </div>
+      </div>
+  </section>
+</body>
+
+</html>

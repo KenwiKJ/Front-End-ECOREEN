@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/transportasi.css">
+    <script src="https://kit.fontawesome.com/e73742050b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="" alt="">
+            <span class="logo_name">ECOREEN</span>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <a href="home.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="list_name">Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="company.html">
+                    <i class="fa-solid fa-industry"></i>
+                    <span class="list_name">Company</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="analytics.html">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="list_name">Analytics</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#" class="active">
+                    <i class="fa-solid fa-truck"></i>
+                    <span class="list_name">Transportation</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class="fa-solid fa-bars side"></i>
+                <span class="dashboard">Transportation</span>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="profile-details">
+                <img src="./img/planet-earth.png" alt="">
+                <span class="admin_name">Kenwi Konghardijunanto</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </nav>
+
+        <div class="home-content">
+            <div class="background-analytics">
+                <img src="./img/43911.jpg" alt="">
+            </div>
+
+            <div class="container-input">
+                <div class="form">
+                    <h3>The form for conducting an analysis of the resulting emissions :</h3>
+
+                    <div class="input-box">
+                        <span>Total Transportations:</span>
+                        <input id="total" type="number" required="required" placeholder="example : 100">
+                    </div>
+
+                    <div class="input-box">
+                        <span>Engine Size (L): </span>
+                        <input id="enginesize" type="number" required="required" placeholder="example : 2.0">
+                    </div>
+
+                    <div class="input-box">
+                        <span>Cylinders :</span>
+                        <input id="cylinders" type="text" required="required" placeholder="example : 4">
+                    </div>
+
+                    <div class="dropdown">
+                        <div class="text-fuel">
+                            <span>Fuel Type :</span>
+                        </div>
+                        <div class="option-fuel">
+                            <select id="fuel" name="subject" id="subject" class="fuel">
+                                <option disabled selected="selected">Select Fuel Type</option>
+                                <option value="reguler">Reguler Gasoline</option>
+                                <option value="premium">Premium Gasoline</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="ethanol">Ethanol (E85)</option>
+                                <option value="natural">Natural Gas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <span>Fuel Consumption City (L/100 km):</span>
+                        <input id="fcc" type="text" required="required" placeholder="example : 9.9">
+                    </div>
+
+                    <div class="input-box">
+                        <span>Fuel Consumption Highway (L/100 km): </span>
+                        <input id="fch" type="number" required="required" placeholder="example : 6.7">
+                    </div>
+
+                    <div class="button-container">
+                        <button onclick="submit();" class="button">submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/transportation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="https://kit.fontawesome.com/e73742050b.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <div class="logo">
+                <span class="logo_name">ECOREEN</span>
+            </div>
+
+            <ul class="nav-list">
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="list_name">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="company.html">
+                        <i class="fa-solid fa-industry"></i>
+                        <span class="list_name">Company</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="analytics.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="list_name">Analytics</span>
+                    </a>
+                </li>
+                
+
+                <li>
+                    <a href="transportasi.html">
+                        <i class="fa-solid fa-truck"></i>
+                        <span class="list_name">Transportation</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="home-section">
+            <nav>
+                <div class="sidebar-button">
+                  <i class="fa-solid fa-bars side"></i>
+                  <span class="dashboard">Dashboard</span>
+                </div>
+                <div class="search-box">
+                  <input type="text" placeholder="Search...">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="profile-details">
+                  <img src="./img/planet-earth.png" alt="">
+                  <span class="admin_name">Kenwi Konghardijunanto</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+              </nav>
+            
+              <div class="home-content">
+                <div class="data-emision-company">
+                    <h2>Carbon Footprint</h2>
+                    <div class="text-data">Detailed carbon footprint based on the amount in Indonesia :</div>
+    
+                    <div class="chart">
+                      <div class="chart-bar">
+                        <div class="chartCard">
+                          <div class="chartBox">
+                            <canvas id="myChart"></canvas>
+                          </div>
+                      </div>
+                      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                      <script>
+                      // setup 
+                      const data = {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                          label: 'CO2',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 26, 104, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 26, 104, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'CH4',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'N2O',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 206, 86, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 206, 86, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'HFCs',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'PFCs',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(153, 102, 255, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(153, 102, 255, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'SF6',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 159, 64, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 159, 64, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'CO2e',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(0, 0, 0, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(0, 0, 0, 1)',
+                          ],
+                          borderWidth: 1
+                        },]
+                      };
+                  
+                      // config bar
+                      const config = {
+                        type: 'bar',
+                        data,
+                        options: {
+                          scales: {
+                            y: {
+                              beginAtZero: true
+                            }
+                          }
+                        }
+                      };
+
+                      // render init block
+                      const myChart = new Chart(
+                        document.getElementById('myChart'),
+                        config
+                      );
+                      </script>
+                    </div>
+
+                    <div class="box-album">
+                        <div class="flex-column">
+                            <div class="flex-row">
+                                <div class="box">
+                                    <p>34.000.000</p>
+                                    <h4>Number of companies in Indonesia</h4>
+                                </div> 
+                            </div>
+                            <div class="flex-row">
+                                <div class="box">
+                                    <p>30.000.000</p>
+                                    <h4>CO2</h4>
+                                </div>
+                                <div class="box">
+                                    <p>100.000</p>
+                                    <h4>CH4</h4>
+                                </div>
+                            </div>
+
+                            <div class="flex-row">
+                                <div class="box">
+                                    <p>1.000</p>
+                                    <h4>N2O</h4>
+                                </div> 
+                                <div class="box">
+                                    <p>-</p>
+                                    <h4>HFCs</h4>
+                                </div>
+                            </div>
+
+                            <div class="flex-row">
+                                <div class="box">
+                                    <p>-</p>
+                                    <h4>PFCs</h4>
+                                </div> 
+                                <div class="box">
+                                    <p>-</p>
+                                    <h4>SF6</h4>
+                                </div> 
+                            </div>
+
+                            <div class="flex-row">
+                                <div class="box">
+                                    <p>34.000.000</p>
+                                    <h4>CO2e</h4>
+                                </div> 
+                            </div>
+
+                            </div>
+                        </div>
+                  </div>   
+                  </div>
+                     
+
+
+                  
+                  <div class="sector-emission">
+                    <h2>Emission Producing Sector:</h2>
+                    <div class="text-data">Sectors contributing to carbon emissions in Indonesia :</div>
+
+                    <div class="chart1">
+                      <div class="chart-bar1">
+                        <div class="chartCard1">
+                          <div class="chartBox2">
+                            <canvas id="myPieChart"></canvas>
+                          </div>
+
+                          <div class="chartBox1">
+                            <canvas id="myLineChart"></canvas>
+                          </div>
+                      </div>
+
+                      <script>
+                        const chart1 = document.getElementById('myPieChart');
+                        const myChart1 = new Chart(chart1, {
+                          type: 'pie',
+                          data: {
+                            labels: ['Power Plant', 'Industry', 'Transportation', 'Other'],
+                            datasets: [{
+                              label: 'Total Emission',
+                              data: [75,25,15,5],
+                              backgroundColor: [
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 26, 104, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(0, 0, 0, 0.2)',
+                              ],
+                              borderColor: [
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 26, 104, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(0, 0, 0, 1)',
+                              ],
+                              borderWidth: 1
+                            }]
+                          },
+                          options: {
+                            scales: {
+                              y: {
+                                beginAtZero: true
+                              }
+                            }
+                          }
+                        });
+
+
+                        const chart2 = document.getElementById('myLineChart');
+                        const myChart2 = new Chart(chart2, {
+                          type: 'bar',
+                          data: {
+                            labels: ['Power Plant', 'Industry', 'Transportation', 'Other'],
+                            datasets: [{
+                          label: 'CO2',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 26, 104, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 26, 104, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'CH4',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'N2O',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 206, 86, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 206, 86, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'HFCs',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'PFCs',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(153, 102, 255, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(153, 102, 255, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'SF6',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 159, 64, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 159, 64, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'CO2e',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(0, 0, 0, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(0, 0, 0, 1)',
+                          ],
+                          borderWidth: 1
+                        }]
+                          },
+                          options: {
+                            scales: {
+                              y: {
+                                beginAtZero: true
+                              }
+                            }
+                          }
+                        });
+                      </script>
+                    </div>
+                  </div>
+              </div>
+        </section>
+    </body>
+</html>

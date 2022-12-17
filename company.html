@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/company.css">
+        <script src="https://kit.fontawesome.com/e73742050b.js" crossorigin="anonymous"></script>
+
+        
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <script src="./js/table.js"></script>
+
+        <script>
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarBtn = document.querySelector(".sidebarBtn");
+            sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+                if(sidebar.classList.contains("active")){
+                    sidebarBtn.classList.replace("fa-bars" , "fa-bars");
+                }else
+                    sidebarBtn.classList.replace("fa-solid fa-bars-sort", "fa-bars");
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <div class="logo">
+                <img src="" alt="">
+                <span class="logo_name">ECOREEN</span>
+            </div>
+
+            <ul class="nav-list">
+                <li>
+                    <a href="home.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="list_name">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-file-contract"></i>
+                        <span class="list_name">Company</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="analytics.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="list_name">Analytics</span>
+                    </a>
+                </li>
+                
+
+                <li>
+                    <a href="transportasi.html">
+                        <i class="fa-solid fa-truck"></i>
+                        <span class="list_name">Transportation</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="home-section">
+            <nav>
+                <div class="sidebar-button">
+                  <i class="fa-solid fa-bars sidebarBtn"></i>
+                  <span class="dashboard">Company</span>
+                </div>
+                <div class="search-box">
+                  <input type="text" placeholder="Search...">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="profile-details">
+                  <img src="./img/planet-earth.png" alt="">
+                  <span class="admin_name">Kenwi Konghardijunanto</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+              </nav>
+
+              <div class="home-content">
+                <div class="profile-company">
+                    <h2>Company Details</h2>
+                    <div class="atribut-company">
+                        <p class="text-atribut">Company Detailed Data :</p>
+                        <div class="text-company">
+                            <p class="title">Sector</p>
+                            <p>Manufacture</p>
+                        </div>
+                        
+                        <div class="text-company">
+                            <p class="title">Industry</p>
+                            <p>Textiles</p>
+                        </div>
+                        
+                        <div class="text-company">
+                            <p class="title">Sector Description</p>
+                            <p>Manufacturing is a branch of industry that operates equipment, machinery and 
+                              labor in a process medium to process raw materials, spare parts and other 
+                              components to be produced into finished goods that have a sale value. 
+                              Manufacturing industry activities often use machines, robots, computers, and 
+                              human power to produce goods or services and assembling, to produce a product.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-emision-company">
+                    <h2>Carbon Footprint</h2>
+                    <div class="text-data">Carbon footprint details based on object activity :</div>
+
+                    <div class="chart">
+                      <div class="chart-bar">
+                        <div class="chartCard">
+                          <div class="chartBox">
+                            <canvas id="myLineChart"></canvas>
+                          </div>
+
+                          <div class="chartBox">
+                            <canvas id="myChart"></canvas>
+                          </div>
+                      </div>
+                      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                      <script>
+                      // setup 
+                      const data = {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                          label: 'CO2',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 26, 104, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 26, 104, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'CH4',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'N2O',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 206, 86, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 206, 86, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'HFCs',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'PFCs',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(153, 102, 255, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(153, 102, 255, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'SF6',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(255, 159, 64, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(255, 159, 64, 1)',
+                          ],
+                          borderWidth: 1
+                        },
+                        {
+                          label: 'CO2e',
+                          data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                          backgroundColor: [
+                            'rgba(0, 0, 0, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(0, 0, 0, 1)',
+                          ],
+                          borderWidth: 1
+                        }]
+                      };
+                  
+                      // config bar
+                      const config = {
+                        type: 'bar',
+                        data,
+                        options: {
+                          scales: {
+                            y: {
+                              beginAtZero: true
+                            }
+                          }
+                        }
+                      };
+
+                      // config line
+                      const config2 = {
+                        type: 'line',
+                        data,
+                        options: {
+                          scales: {
+                            y: {
+                              beginAtZero: true
+                            }
+                          }
+                        }
+                      };
+
+                      const chart1 = document.getElementById('myLineChart');
+                      const myChart1 = new Chart(chart1, {
+                        type: 'line',
+                        data: {
+                          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                          datasets: [{
+                            label: 'Total Emission',
+                            data: [18, 12, 6, 9, 12, 3, 9, 17, 1, 10, 5, 4],
+                            backgroundColor: [
+                              'rgba(75, 192, 192, 0.2)',
+                            ],
+                            borderColor: [
+                              'rgba(75, 192, 192, 1)',
+                            ],
+                            borderWidth: 1
+                          }]
+                        },
+                        options: {
+                          scales: {
+                            y: {
+                              beginAtZero: true
+                            }
+                          }
+                        }
+                      })
+                  
+                      // render init block
+                      const myChart = new Chart(
+                        document.getElementById('myChart'),
+                        config
+                      );
+
+                      // render init block
+                      const myLineChart = new Chart(
+                        document.getElementById('myLineChart'),
+                        config2
+                      );
+                      </script>
+                    </div>
+                  </div>
+                      
+
+                    <div class="box-album">
+                        <div class="flex-column">
+                            <div class="flex-row">
+                                <div class="box">
+                                    <p>30.000.000</p>
+                                    <h4>CO2</h4>
+                                </div>
+                                <div class="box">
+                                    <p>100.000</p>
+                                    <h4>CH4</h4>
+                                </div>
+                                <div class="box">
+                                    <p>1.000</p>
+                                    <h4>N2O</h4>
+                                </div> 
+                                <div class="box">
+                                    <p>-</p>
+                                    <h4>HFCs</h4>
+                                </div> 
+                                <div class="box">
+                                    <p>-</p>
+                                    <h4>PFCs</h4>
+                                </div> 
+                                <div class="box">
+                                    <p>-</p>
+                                    <h4>SF6</h4>
+                                </div> 
+                                <div class="box">
+                                    <p>34.000.000</p>
+                                    <h4>CO2e</h4>
+                                </div> 
+                            </div>
+                            </div>
+                        </div>
+                  </div>
+
+                    <div class="activity-logs">
+                        <h2>Activity Logs</h2>
+
+                        <table class="content-table" id="example">
+                            <thead>
+                                <tr>
+                                    <th title="Field #1">Date</th>
+                                    <th title="Field #2">Activity Object</th>
+                                    <th title="Field #2">Total Object</th>
+                                    <th title="Field #2">Fuel Type</th>
+                                    <th title="Field #6">Total Emision</th>
+                                    <th title="Field #6">Carbox Tax (Rp)</th>
+                                    <th title="Field #6">Recover (Tree)</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="table_body">
+                                
+                            </tbody>
+                        </table>
+                        <script src="./js/company.js"></script>
+                    </div>
+                </div>
+              </div>
+        </section>
+    </body>
+</html>
